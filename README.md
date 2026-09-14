@@ -1,3 +1,9 @@
+> **This fork adds cable-free (Wi-Fi) operation.** ARTEMIS does not need a USB
+> cable — the plumbing for pairing, mDNS discovery and reconnection lives in
+> [`wireless/`](wireless/), along with the one patch needed to run it without a
+> Google API key. Write-up and measurements:
+> [Driving a Spare Phone with Google's ARTEMIS, No Cable Required](https://blog.antoniosolismz.com/posts/artemis-no-cable-required/).
+
 <p align="center">
   <img src="./docs/assets/artemis-banner.png?v=7" alt="ARTEMIS Banner" width="100%" />
 </p>

@@ -1,0 +1,16 @@
+[Unit]
+Description=ARTEMIS wireless ADB keepalive (reconnects Wi-Fi devices)
+Documentation=file:%h/projects/artemis-wireless/README.md
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/projects/artemis-wireless/artemis-wifi.sh watch 30
+Restart=always
+RestartSec=10
+# Keep the loop cheap and silent-failure tolerant: with no remembered
+# endpoints the pass is a no-op, so this is safe to leave running.
+Nice=10
+
+[Install]
+WantedBy=default.target

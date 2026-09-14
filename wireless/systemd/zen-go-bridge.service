@@ -1,0 +1,18 @@
+[Unit]
+Description=OpenCode Go bridge for ARTEMIS (injects x-opencode-session/UA)
+Documentation=file:%h/projects/artemis-wireless/zen_go_proxy.py
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/projects/artemis-wireless
+# The Go subscription key lives in the Hermes .env; the bridge reads it there.
+EnvironmentFile=%h/.hermes/.env
+Environment=ZEN_PORT=8787
+Environment=ZEN_SESSION_ID=hermes-artemis-bridge
+ExecStart=%h/projects/artemis/.venv/bin/python %h/projects/artemis-wireless/zen_go_proxy.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
